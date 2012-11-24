@@ -6,6 +6,7 @@ import src.com.pinkdroid.dealhunter.model.Business;
 import src.com.pinkdroid.dealhunter.model.Deal;
 import src.com.pinkdroid.dealhunter.util.GSONUtil;
 
+import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -53,6 +54,17 @@ public class DatabaseHelper {
 		DBObject dbObject = (DBObject)JSON.parse(GSONUtil.dealToJSON(deal));
 		dealCollection.insert(dbObject);
 		return true;
+	}
+	public boolean deleteDeal(String _id)
+	{
+		DBObject obj = new BasicDBObjectBuilder().add("_id", "myid").get();
+		if(obj != null)
+		{
+			dealCollection.remove(obj);
+			return true;
+		}
+		return false;
+		
 	}
 
 
