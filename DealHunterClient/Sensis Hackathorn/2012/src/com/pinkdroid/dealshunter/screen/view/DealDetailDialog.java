@@ -39,9 +39,9 @@ public class DealDetailDialog extends Dialog {
 					longitude_source = DealsHunterController.userCurrGeoPoint.getLatitudeE6() / 10E6;
 				}
 				Intent intent;
-				if (deal != null && deal.getAddress() != null) {
+				if (deal != null && deal.getBusinessInfo().getAddress() != null) {
 					@SuppressWarnings("deprecation")
-					String encodedBBaddress = URLEncoder.encode(deal.getAddress());
+					String encodedBBaddress = URLEncoder.encode(deal.getBusinessInfo().getAddress().toString());
 					intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?saddr=" + latitude_source + "," + longitude_source + "&daddr=" + encodedBBaddress));
 				} else {
 					double latitude_dest = -37.86822;
