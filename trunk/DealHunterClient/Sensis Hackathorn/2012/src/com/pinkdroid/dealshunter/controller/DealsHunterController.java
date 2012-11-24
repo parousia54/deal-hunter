@@ -1,8 +1,10 @@
 package com.pinkdroid.dealshunter.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.google.android.maps.GeoPoint;
+import com.pinkdroid.dealshunter.model.Business;
 import com.pinkdroid.dealshunter.model.Deal;
 
 import android.app.Application;
@@ -12,10 +14,27 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 
+@SuppressWarnings("deprecation")
 public class DealsHunterController extends Application {
 	private static DealsHunterController _instance;
 	private static LocationManager locationManager;
 	public static GeoPoint userCurrGeoPoint;
+	public static ArrayList<Deal> fakedeals = new ArrayList<Deal>();
+	static {//Parlour Hairdressing, MYERS, DENDY Cinema, Hoyts Cinema, Mai Thai Vietnamese Restaurant
+		fakedeals.add(new Deal(0, Business.businesses.get(0), new Date(2012, 11, 25, 9, 0), new Date(2012, 11, 25, 17, 0), 200, 1, null, null, 0, null,
+				"50% discount on hair extension. Two year wrranty!"));
+		fakedeals.add(new Deal(1, Business.businesses.get(1), new Date(2012, 11, 6, 9, 0), new Date(2012, 11, 21, 17, 0), 200, 1, null, null, 0, null, "$20 Off on all eletrical appliances"));
+		fakedeals.add(new Deal(2, Business.businesses.get(3), new Date(2012, 11, 2, 9, 0), new Date(2012, 11, 25, 17, 0), 200, 1, null, null, 0, null, "$11 Ticket for SkyFall every monday"));
+		fakedeals.add(new Deal(3, Business.businesses.get(1), new Date(2012, 11, 6, 9, 0), new Date(2012, 11, 21, 17, 0), 200, 1, null, null, 0, null,
+				"Buy any two shirts to get the third one FREE*, Hurry up while stocks last"));
+		fakedeals.add(new Deal(4, Business.businesses.get(3), new Date(2012, 11, 6, 9, 0), new Date(2012, 11, 21, 17, 0), 200, 1, null, null, 0, null, "$8 Movie ticket for all movies*"));
+		fakedeals.add(new Deal(5, Business.businesses.get(3), new Date(2012, 11, 6, 9, 0), new Date(2012, 11, 21, 17, 0), 200, 1, null, null, 0, null, "$8 Gold Class Movie Ticket on Wednesday"));
+		fakedeals.add(new Deal(6, Business.businesses.get(4), new Date(2012, 11, 6, 9, 0), new Date(2012, 11, 21, 17, 0), 200, 1, null, null, 0, null,
+				"Spend more than $20 on dinner to get 30% discount"));
+		fakedeals.add(new Deal(7, Business.businesses.get(1), new Date(2012, 11, 6, 9, 0), new Date(2012, 11, 21, 17, 0), 200, 1, null, null, 0, null,
+				"$40 for Hola games"));
+	}
+	ArrayList<Deal> dealList = new ArrayList<Deal>();
 
 	private LocationListener locationListener = new LocationListener() {
 		public void onLocationChanged(Location location) {
@@ -59,10 +78,8 @@ public class DealsHunterController extends Application {
 		return _instance;
 	}
 
-	ArrayList<Deal> dealList = new ArrayList<Deal>();
-
 	public ArrayList<Deal> getDealList() {
-		return dealList;
+		return fakedeals;
 	}
 
 	public void setDealList(ArrayList<Deal> dealList) {

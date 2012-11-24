@@ -1,12 +1,10 @@
 package com.pinkdroid.dealshunter.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Deal {
 	int dealId;
 	Business businessInfo;
-	
 
 	Date startTime;
 	Date endTime;
@@ -17,15 +15,8 @@ public class Deal {
 	int ratingStatus;
 	String imageUrl;
 	String discountDescription;
-	
-	public static ArrayList<Deal> fakedeals = new ArrayList<Deal>();
-	static {
-		fakedeals.add(new Deal(1, Business.businesses.get(0), new Date(2012, 11, 25, 9, 0), new Date(2012, 11, 25, 17, 0), 200, 1, null, null, 0, null, "50% discount on hair extension. Two year wrranty!"));
-	}
-	
-	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime,
-			int categoryId, String address, UserFeedback feedback,
-			int ratingStatus, String imageUrl,String discountDescription ) {
+
+	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime, int categoryId, String address, UserFeedback feedback, int ratingStatus, String imageUrl, String discountDescription) {
 		super();
 		this.dealId = dealId;
 		this.businessInfo = businessInfo;
@@ -38,9 +29,8 @@ public class Deal {
 		this.imageUrl = imageUrl;
 		this.discountDescription = discountDescription;
 	}
-	
-	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime,
-			double distance, int categoryId, String address, UserFeedback feedback, int ratingStatus, String imageUrl,
+
+	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime, double distance, int categoryId, String address, UserFeedback feedback, int ratingStatus, String imageUrl,
 			String discountDescription) {
 		super();
 		this.dealId = dealId;
@@ -55,6 +45,7 @@ public class Deal {
 		this.imageUrl = imageUrl;
 		this.discountDescription = discountDescription;
 	}
+
 	public Business getBusinessInfo() {
 		return businessInfo;
 	}
@@ -62,63 +53,79 @@ public class Deal {
 	public void setBusinessInfo(Business businessInfo) {
 		this.businessInfo = businessInfo;
 	}
+
 	public int getDealId() {
 		return dealId;
 	}
+
 	public void setDealId(int dealId) {
 		this.dealId = dealId;
 	}
-	
+
 	public Date getStartTime() {
 		return startTime;
 	}
+
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
+
 	public Date getEndTime() {
 		return endTime;
 	}
+
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
+
 	public double getDistance() {
 		return distance;
 	}
+
 	public void setDistance(double distance) {
 		this.distance = distance;
 	}
+
 	public int getCategoryId() {
 		return categoryId;
 	}
+
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 	public int getRatingStatus() {
 		return ratingStatus;
 	}
+
 	public void setRatingStatus(int ratingStatus) {
 		this.ratingStatus = ratingStatus;
 	}
+
 	public String getImageUrl() {
 		return imageUrl;
 	}
+
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+
 	public String getDiscountDescription() {
 		return discountDescription;
 	}
+
 	public void setDiscountDescription(String discountDescription) {
 		this.discountDescription = discountDescription;
 	}
-	
+
 	public UserFeedback getFeedback() {
 		return feedback;
 	}
@@ -127,29 +134,31 @@ public class Deal {
 		this.feedback = feedback;
 	}
 
-	
-	public static class UserFeedback{
+	public static class UserFeedback {
 		private int thumbUpNo;
 		private int thumbDownNo;
-		
-		
+
 		public UserFeedback(int thumbUpNo, int thumbDownNo) {
 			super();
 			this.thumbUpNo = thumbUpNo;
 			this.thumbDownNo = thumbDownNo;
 		}
+
 		public int getThumbUpNo() {
 			return thumbUpNo;
 		}
+
 		public void setThumbUpNo(int thumbUpNo) {
 			this.thumbUpNo = thumbUpNo;
 		}
+
 		public int getThumbDownNo() {
 			return thumbDownNo;
 		}
+
 		public void setThumbDownNo(int thumbDownNo) {
 			this.thumbDownNo = thumbDownNo;
 		}
 	}
-	
+
 }
