@@ -1,9 +1,5 @@
 package com.pinkdroid.dealshunter.screen.view;
 
-import com.pinkdroid.dealshunter.R;
-import com.pinkdroid.dealshunter.controller.DealsHunterController;
-
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.pinkdroid.dealshunter.R;
+import com.pinkdroid.dealshunter.controller.DealsHunterController;
 
 public class DealViewerPageFragment extends Fragment {
 	public static final int POPULAR_PAGE_ID = 0;

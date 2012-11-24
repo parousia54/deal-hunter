@@ -19,14 +19,14 @@ import com.pinkdroid.dealshunter.model.Deal.UserFeedback;
 public class DealListViewAdapter extends BaseAdapter{
 	private Context context;
 	private List<Deal> dealList;
+	
 	public DealListViewAdapter(Context context, List<Deal> dealList){
 		this.context = context;
 		this.dealList = dealList;
 	}
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
-		return 50;
+		return dealList.size();
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class DealListViewAdapter extends BaseAdapter{
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.deal_listview_row_layout, null);
-			//bindDataToView(convertView, dealList.get(position));
+			bindDataToView(convertView, dealList.get(position));
 		}
 		
 		//Typeface avenir65m = Typeface.createFromAsset(context.getAssets(), "fonts/avenir65m.ttf");
