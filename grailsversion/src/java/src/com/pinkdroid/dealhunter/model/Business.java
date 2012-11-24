@@ -1,23 +1,25 @@
 package src.com.pinkdroid.dealhunter.model;
 
 
-public class User {
+public class Business {
 	String username;
 	String password;
 	Address businessAddress;
 	String businessPhone;
 	boolean isVerified;
-	public User() {
+	String businessCategory;
+	public Business() {
 		super();
 	}
-	public User(String username, String password, Address businessAddress,
-			String businessPhone, boolean isVerified) {
+	public Business(String username, String password, Address businessAddress,
+			String businessPhone, boolean isVerified, String businessCategory) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.businessAddress = businessAddress;
 		this.businessPhone = businessPhone;
 		this.isVerified = isVerified;
+		this.businessCategory = businessCategory;
 	}
 	public String getUsername() {
 		return username;
@@ -48,5 +50,11 @@ public class User {
 	}
 	public void setVerified(boolean isVerified) {
 		this.isVerified = isVerified;
+	}
+	public String getBusinessCategory() {
+		return businessCategory;
+	}
+	public void setBusinessCategory(String businessCategory) {
+		this.businessCategory = businessCategory;
 	}
 }
