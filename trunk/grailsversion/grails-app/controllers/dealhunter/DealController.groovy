@@ -4,6 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 import src.com.pinkdroid.dealhunter.model.Deal
 import src.com.pinkdroid.dealhunter.db.DatabaseHelper
 import javax.annotation.PostConstruct
+import grails.converters.JSON
 
 class DealController {
 
@@ -58,5 +59,9 @@ class DealController {
         flash.message = message(code: 'default.deleted.message', args: [message(code: 'deal.label', default: 'Deal'), params.id])
         redirect(action: "list")
 
+    }
+
+    def getJson() {
+        render dbHelper.getDeal(params.id) as JSON
     }
 }
