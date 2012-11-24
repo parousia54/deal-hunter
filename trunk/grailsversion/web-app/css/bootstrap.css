@@ -4174,3 +4174,13 @@ a.badge:hover {
 .invisible {
     visibility: hidden;
 }
+
+
+/*Custom*/
+.property-label {
+    display: block;
+    float: left;
+    font-weight: bold;
+    vertical-align: middle;
+    width: 180px;
+}

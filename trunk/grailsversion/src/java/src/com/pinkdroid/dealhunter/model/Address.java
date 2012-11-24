@@ -1,5 +1,8 @@
 package src.com.pinkdroid.dealhunter.model;
 
+import grails.validation.Validateable;
+
+@Validateable
 public class Address {
 	
 	String streetNumber;
