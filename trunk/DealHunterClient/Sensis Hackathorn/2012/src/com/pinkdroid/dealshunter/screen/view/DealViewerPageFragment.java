@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 
@@ -22,7 +23,7 @@ public class DealViewerPageFragment extends Fragment{
 		return page;
 	}
 	
-	public DealViewerPageFragment(int pageId){
+	private DealViewerPageFragment(int pageId){
 		super();
 		this.pageId=pageId;
 	}
@@ -31,8 +32,18 @@ public class DealViewerPageFragment extends Fragment{
             Bundle savedInstanceState) {
 		ViewGroup root = (ViewGroup) inflater.inflate(R.layout.deal_viewer_fragment_page_layout, null);
 		ListView list = (ListView)root.findViewById(R.id.deals_listview);
+		
 		DealListViewAdapter adapter = new DealListViewAdapter(this.getActivity(), DealsHunterController.getInstance().getDealList());
 		list.setAdapter(adapter);
+		
+		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int pos,
+					long id) {
+				getActivity().showDialog(DealDetailDialog.DIALOG_TYPE_DEAL_DETAIL);
+			}
+		});
 		return root;
 	}
 	
