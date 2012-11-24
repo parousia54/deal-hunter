@@ -11,7 +11,7 @@ import src.com.pinkdroid.dealhunter.model.Deal;
 
 public class GSONUtil {
 
-	static Gson gson;
+	static Gson gson = new Gson();
 
 	public static String businesstoJSON(Business obj) {
 		String json = gson.toJson(obj);
@@ -38,10 +38,15 @@ public class GSONUtil {
 		deal.setDealDescription((String)next.get("dealDescription"));
 		deal.setDealStartDate(((Date)next.get("dealStartDate")));
 		deal.setDealEndDate(((Date)next.get("dealEndDate")));
-		deal.setDealScore((int) next.get("dealScore"));
+		deal.setDealScore((Integer) next.get("dealScore"));
 		deal.setDealImage((File) next.get("dealImage"));
 		
 		return deal;
 	}
 
+    public static Business jsonToBusiness(DBObject next) {
+        Business business = new Business();
+        business.setUsername((String) next.get("username"));
+        return business;
+    }
 }
