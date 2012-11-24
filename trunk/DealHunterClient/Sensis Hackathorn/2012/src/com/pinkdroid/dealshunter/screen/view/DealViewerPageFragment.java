@@ -32,8 +32,7 @@ public class DealViewerPageFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		ViewGroup root = (ViewGroup) inflater.inflate(R.layout.deal_viewer_fragment_page_layout, null);
 		ListView list = (ListView) root.findViewById(R.id.deals_listview);
-
-		DealListViewAdapter adapter = new DealListViewAdapter(this.getActivity(), DealsHunterController.getInstance().getDealList());
+		DealListViewAdapter adapter = new DealListViewAdapter(this.getActivity(), DealsHunterController.getInstance().getDealList(pageId));
 		list.setAdapter(adapter);
 
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -10,27 +10,25 @@ public class Deal {
 	Date endTime;
 	double distance;
 	int categoryId;
-	String address;
 	UserFeedback feedback;
 	int ratingStatus;
 	String imageUrl;
 	String discountDescription;
 
-	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime, int categoryId, String address, UserFeedback feedback, int ratingStatus, String imageUrl, String discountDescription) {
+	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime, int categoryId, UserFeedback feedback, int ratingStatus, String imageUrl, String discountDescription) {
 		super();
 		this.dealId = dealId;
 		this.businessInfo = businessInfo;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.categoryId = categoryId;
-		this.address = address;
 		this.feedback = feedback;
 		this.ratingStatus = ratingStatus;
 		this.imageUrl = imageUrl;
 		this.discountDescription = discountDescription;
 	}
 
-	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime, double distance, int categoryId, String address, UserFeedback feedback, int ratingStatus, String imageUrl,
+	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime, double distance, int categoryId, UserFeedback feedback, int ratingStatus, String imageUrl,
 			String discountDescription) {
 		super();
 		this.dealId = dealId;
@@ -39,7 +37,6 @@ public class Deal {
 		this.endTime = endTime;
 		this.distance = distance;
 		this.categoryId = categoryId;
-		this.address = address;
 		this.feedback = feedback;
 		this.ratingStatus = ratingStatus;
 		this.imageUrl = imageUrl;
@@ -92,15 +89,7 @@ public class Deal {
 
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	}	
 
 	public int getRatingStatus() {
 		return ratingStatus;
@@ -135,9 +124,8 @@ public class Deal {
 	}
 
 	public static class UserFeedback {
-		private int thumbUpNo;
-		private int thumbDownNo;
-
+		private int thumbUpNo = 0;
+		private int thumbDownNo = 0;
 		public UserFeedback(int thumbUpNo, int thumbDownNo) {
 			super();
 			this.thumbUpNo = thumbUpNo;
@@ -158,6 +146,9 @@ public class Deal {
 
 		public void setThumbDownNo(int thumbDownNo) {
 			this.thumbDownNo = thumbDownNo;
+		}
+		public int getScore(){
+			return thumbUpNo - thumbDownNo;
 		}
 	}
 
