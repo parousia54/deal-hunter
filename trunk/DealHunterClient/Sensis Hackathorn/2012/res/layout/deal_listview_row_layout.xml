@@ -58,7 +58,7 @@
                                         android:id="@+id/deal_listview_row_business_name"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="\@Yamaha Motor"
+                                        android:text="\@Parlour Hairdressing"
                                         android:textStyle="normal" />
 
                                     <ImageView
@@ -78,7 +78,7 @@
                                     android:id="@+id/deal_listview_row_business_address"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="106 Chapel St Melbourne Victoria 3000"
+                                    android:text="106 Chapel St, St Kilda Victoria 3182"
                                     android:textSize="10sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -98,8 +98,10 @@
                         android:maxLines="2"
                         android:minLines="2"
                         android:singleLine="false"
-                        android:text="Description will go here with discount and here is the very long text"
-                        android:textColor="@android:color/holo_blue_dark"
+                        android:text="50% discount on hair extension. Two year wrranty!"
+                        android:textSize="16sp"
+                        android:gravity="left"
+                        android:textColor="#2645a8"
                         android:textStyle="bold" />
                 </LinearLayout>
 
