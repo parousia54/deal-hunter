@@ -1,5 +1,6 @@
 package com.pinkdroid.dealshunter.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Deal {
@@ -16,6 +17,11 @@ public class Deal {
 	int ratingStatus;
 	String imageUrl;
 	String discountDescription;
+	
+	public static ArrayList<Deal> fakedeals = new ArrayList<Deal>();
+	static {
+		fakedeals.add(new Deal(1, Business.businesses.get(0), new Date(2012, 11, 25, 9, 0), new Date(2012, 11, 25, 17, 0), 200, 1, null, null, 0, null, "50% discount on hair extension. Two year wrranty!"));
+	}
 	
 	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime,
 			int categoryId, String address, UserFeedback feedback,
