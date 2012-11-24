@@ -1,8 +1,11 @@
 package src.com.pinkdroid.dealhunter.model;
 
+import org.codehaus.groovy.grails.validation.Validateable;
+
 import java.io.File;
 import java.util.Date;
 
+@Validateable
 public class Deal {
 	String id;
 	String dealTitle;
@@ -11,7 +14,7 @@ public class Deal {
 	Date dealStartDate;
 	Date dealEndDate;
 	int dealScore; // similar to reddit upvote/downvote score
-	String businessId;
+	String username;
 
 	public Deal() {
 		super();
@@ -28,7 +31,7 @@ public class Deal {
 		this.dealStartDate = dealStartDate;
 		this.dealEndDate = dealEndDate;
 		this.dealScore = dealScore;
-		this.businessId = businessId;
+		this.username = username;
 	}
 
 	public String getId() {
@@ -87,12 +90,12 @@ public class Deal {
 		this.dealScore = dealScore;
 	}
 
-	public String getBusinessId() {
-		return businessId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setBusinessId(String businessId) {
-		this.businessId = businessId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 
