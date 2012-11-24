@@ -78,7 +78,7 @@
                                     android:id="@+id/deal_listview_row_business_address"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Melbourne Central Shopping center"
+                                    android:text="106 Chapel St Melbourne Victoria 3000"
                                     android:textSize="10sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -189,7 +189,7 @@
                     android:id="@+id/deal_listview_row_icon"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:src="@drawable/product_image" />
+                    android:src="@drawable/thumbnail" />
             </LinearLayout>
         </TableRow>
     </TableLayout>

@@ -2,15 +2,6 @@ package com.pinkdroid.dealshunter.screen;
 
 import java.util.List;
 
-import com.pinkdroid.dealshunter.R;
-import com.pinkdroid.dealshunter.R.id;
-import com.pinkdroid.dealshunter.R.layout;
-import com.pinkdroid.dealshunter.R.menu;
-import com.pinkdroid.dealshunter.R.string;
-import com.pinkdroid.dealshunter.model.Deal;
-import com.pinkdroid.dealshunter.screen.view.DealDetailDialog;
-import com.pinkdroid.dealshunter.screen.view.DealViewerPageAdapter;
-
 import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
@@ -22,10 +13,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.pinkdroid.dealshunter.R;
 import com.pinkdroid.dealshunter.model.Deal;
@@ -86,7 +74,8 @@ public class MainDealViewerScreen extends FragmentActivity implements ActionBar.
     }
 
     private void setupSearchView(SearchView searchView) {
-    	searchView.setIconifiedByDefault(false);
+    	//searchView.setIconifiedByDefault(false);
+    	searchView.setQueryHint("Search deals");
     	SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null) {
             List<SearchableInfo> searchables = searchManager.getSearchablesInGlobalSearch();
