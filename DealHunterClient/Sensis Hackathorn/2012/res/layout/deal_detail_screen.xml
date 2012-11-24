@@ -67,7 +67,8 @@
                                 android:layout_margin="5dip"
                                 android:drawableTop="@drawable/up"
                                 android:gravity="center_horizontal"
-                                android:text="1000" />
+                                android:text="1000" 
+                                android:textColor="@android:color/holo_green_dark"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -84,7 +85,8 @@
                                 android:layout_margin="5dip"
                                 android:drawableTop="@drawable/down"
                                 android:gravity="center_horizontal"
-                                android:text="999" />
+                                android:text="999" 
+                                android:textColor="@android:color/holo_red_dark"/>
                         </LinearLayout>
                     </TableRow>
 

@@ -138,7 +138,9 @@
                                 android:layout_margin="5dip"
                                 android:drawableLeft="@drawable/up"
                                 android:text="1000"
-                                android:textSize="9sp" />
+                                android:textSize="9sp" 
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/holo_green_dark"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -155,7 +157,10 @@
                                 android:layout_margin="5dip"
                                 android:drawableLeft="@drawable/down"
                                 android:text="999"
-                                android:textSize="9sp" />
+                                android:textSize="9sp" 
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/holo_red_dark"
+                                />
                         </LinearLayout>
                     </LinearLayout>
 
