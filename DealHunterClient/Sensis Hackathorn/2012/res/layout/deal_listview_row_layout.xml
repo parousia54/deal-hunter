@@ -58,8 +58,8 @@
                                         android:id="@+id/deal_listview_row_business_name"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Yamaha Motor"
-                                        android:textStyle="bold" />
+                                        android:text="\@Yamaha Motor"
+                                        android:textStyle="normal" />
 
                                     <ImageView
                                         android:id="@+id/deal_listview_row_verified_icon"
@@ -110,8 +110,9 @@
                         android:id="@+id/deal_listview_row_description"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:singleLine="true"
+                        android:singleLine="false"
                         android:text="Description will go here with discount and here is the very long text"
+                        android:textStyle="bold"
                         android:textColor="@android:color/holo_blue_dark" />
                 </LinearLayout>
 
@@ -136,11 +137,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_margin="5dip"
-                                android:drawableLeft="@drawable/up"
+                                android:drawableTop="@drawable/up"
                                 android:text="1000"
                                 android:textSize="9sp" 
                                 android:gravity="center_vertical"
                                 android:textColor="@android:color/holo_green_dark"/>
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -155,7 +157,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_margin="5dip"
-                                android:drawableLeft="@drawable/down"
+                                android:drawableTop="@drawable/down"
                                 android:text="999"
                                 android:textSize="9sp" 
                                 android:gravity="center_vertical"

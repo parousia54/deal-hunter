@@ -34,34 +34,38 @@ public final class R {
         public static final int verified=0x7f02000f;
     }
     public static final class id {
-        public static final int deal_detail_call_business=0x7f080006;
-        public static final int deal_detail_deal_image=0x7f080002;
-        public static final int deal_detail_distance=0x7f08000b;
-        public static final int deal_detail_end_time=0x7f08000c;
-        public static final int deal_detail_mapview=0x7f080005;
-        public static final int deal_detail_review_text=0x7f08000d;
-        public static final int deal_detail_screen_discount_description=0x7f080001;
-        public static final int deal_detail_thumbdown=0x7f080004;
-        public static final int deal_detail_thumbup=0x7f080003;
-        public static final int deal_listview_row_business_address=0x7f08000a;
-        public static final int deal_listview_row_business_icon=0x7f080007;
-        public static final int deal_listview_row_business_name=0x7f080008;
-        public static final int deal_listview_row_description=0x7f08000f;
-        public static final int deal_listview_row_distance=0x7f08000e;
-        public static final int deal_listview_row_endtime=0x7f080012;
-        public static final int deal_listview_row_icon=0x7f080013;
-        public static final int deal_listview_row_thumbdown=0x7f080011;
-        public static final int deal_listview_row_thumbup=0x7f080010;
-        public static final int deal_listview_row_verified_icon=0x7f080009;
-        public static final int deals_listview=0x7f080014;
-        public static final int menu_settings=0x7f080015;
-        public static final int pager=0x7f080000;
+        public static final int action_search=0x7f080018;
+        public static final int deal_detail_call_business=0x7f080007;
+        public static final int deal_detail_deal_image=0x7f080003;
+        public static final int deal_detail_distance=0x7f08000c;
+        public static final int deal_detail_end_time=0x7f08000d;
+        public static final int deal_detail_mapview=0x7f080006;
+        public static final int deal_detail_review_text=0x7f08000e;
+        public static final int deal_detail_screen_discount_description=0x7f080002;
+        public static final int deal_detail_thumbdown=0x7f080005;
+        public static final int deal_detail_thumbup=0x7f080004;
+        public static final int deal_listview_row_business_address=0x7f08000b;
+        public static final int deal_listview_row_business_icon=0x7f080008;
+        public static final int deal_listview_row_business_name=0x7f08000f;
+        public static final int deal_listview_row_business_name1=0x7f080009;
+        public static final int deal_listview_row_description=0x7f080011;
+        public static final int deal_listview_row_distance=0x7f080010;
+        public static final int deal_listview_row_endtime=0x7f080014;
+        public static final int deal_listview_row_icon=0x7f080015;
+        public static final int deal_listview_row_thumbdown=0x7f080013;
+        public static final int deal_listview_row_thumbup=0x7f080012;
+        public static final int deal_listview_row_verified_icon=0x7f08000a;
+        public static final int deals_listview=0x7f080016;
+        public static final int mapview=0x7f080000;
+        public static final int menu_settings=0x7f080017;
+        public static final int pager=0x7f080001;
     }
     public static final class layout {
-        public static final int activity_main_deal_viewer_screen=0x7f030000;
-        public static final int deal_detail_screen=0x7f030001;
-        public static final int deal_listview_row_layout=0x7f030002;
-        public static final int deal_viewer_fragment_page_layout=0x7f030003;
+        public static final int activity_cool_map=0x7f030000;
+        public static final int activity_main_deal_viewer_screen=0x7f030001;
+        public static final int deal_detail_screen=0x7f030002;
+        public static final int deal_listview_row_layout=0x7f030003;
+        public static final int deal_viewer_fragment_page_layout=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main_deal_viewer_screen=0x7f070000;

@@ -2,19 +2,19 @@ package com.pinkdroid.dealshunter.screen.view;
 
 import java.util.List;
 
-import com.pinkdroid.dealshunter.R;
-import com.pinkdroid.dealshunter.model.Business;
-import com.pinkdroid.dealshunter.model.Deal;
-import com.pinkdroid.dealshunter.model.Deal.UserFeedback;
-
 import android.content.Context;
-import android.net.Uri;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.pinkdroid.dealshunter.R;
+import com.pinkdroid.dealshunter.model.Business;
+import com.pinkdroid.dealshunter.model.Deal;
+import com.pinkdroid.dealshunter.model.Deal.UserFeedback;
 
 public class DealListViewAdapter extends BaseAdapter{
 	private Context context;
@@ -50,6 +50,15 @@ public class DealListViewAdapter extends BaseAdapter{
 			convertView = inflater.inflate(R.layout.deal_listview_row_layout, null);
 			//bindDataToView(convertView, dealList.get(position));
 		}
+		
+		Typeface avenir65m = Typeface.createFromAsset(context.getAssets(), "fonts/avenir65m.ttf");
+		Typeface avenir95bl = Typeface.createFromAsset(context.getAssets(), "fonts/avenir95bl.ttf");
+		TextView deal_listview_row_business_name = (TextView) convertView.findViewById(R.id.deal_listview_row_business_name);
+		deal_listview_row_business_name.setTypeface(avenir65m);
+		TextView deal_listview_row_business_address = (TextView) convertView.findViewById(R.id.deal_listview_row_business_address);
+		deal_listview_row_business_address.setTypeface(avenir95bl);
+		TextView deal_listview_row_description = (TextView) convertView.findViewById(R.id.deal_listview_row_description);
+		deal_listview_row_description.setTypeface(avenir95bl);
 		return convertView;
 	}
 	
