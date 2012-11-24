@@ -7,6 +7,6 @@
     <string name="page_title_ends_soon">Ends Soon</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main_deal_viewer_screen"></string>
+    <string name="title_activity_main_deal_viewer_screen">Deal Hunter</string>
 
 </resources>

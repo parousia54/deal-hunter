@@ -4,7 +4,9 @@ import java.util.Date;
 
 public class Deal {
 	int dealId;
-	int businessId;
+	Business businessInfo;
+	
+
 	Date startTime;
 	Date endTime;
 	double distance;
@@ -15,12 +17,12 @@ public class Deal {
 	String imageUrl;
 	String discountDescription;
 	
-	public Deal(int dealId, int businessId, Date startTime, Date endTime,
+	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime,
 			int categoryId, String address, UserFeedback feedback,
-			int ratingStatus, String imageUrl, String discountDescription) {
+			int ratingStatus, String imageUrl,String discountDescription ) {
 		super();
 		this.dealId = dealId;
-		this.businessId = businessId;
+		this.businessInfo = businessInfo;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.categoryId = categoryId;
@@ -31,12 +33,12 @@ public class Deal {
 		this.discountDescription = discountDescription;
 	}
 	
-	public Deal(int dealId, int businessId, Date startTime, Date endTime,
+	public Deal(int dealId, Business businessInfo, Date startTime, Date endTime,
 			double distance, int categoryId, String address, UserFeedback feedback, int ratingStatus, String imageUrl,
 			String discountDescription) {
 		super();
 		this.dealId = dealId;
-		this.businessId = businessId;
+		this.businessInfo = businessInfo;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.distance = distance;
@@ -47,19 +49,20 @@ public class Deal {
 		this.imageUrl = imageUrl;
 		this.discountDescription = discountDescription;
 	}
-	
+	public Business getBusinessInfo() {
+		return businessInfo;
+	}
+
+	public void setBusinessInfo(Business businessInfo) {
+		this.businessInfo = businessInfo;
+	}
 	public int getDealId() {
 		return dealId;
 	}
 	public void setDealId(int dealId) {
 		this.dealId = dealId;
 	}
-	public int getBusinessId() {
-		return businessId;
-	}
-	public void setBusinessId(int businessId) {
-		this.businessId = businessId;
-	}
+	
 	public Date getStartTime() {
 		return startTime;
 	}
@@ -118,6 +121,7 @@ public class Deal {
 		this.feedback = feedback;
 	}
 
+	
 	public static class UserFeedback{
 		private int thumbUpNo;
 		private int thumbDownNo;
