@@ -1,10 +1,6 @@
 package src.com.pinkdroid.dealhunter.util;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,7 +37,7 @@ public class DataUtil {
         deal.setUsername((String)next.get("username"));
 		deal.setDealTitle((String) next.get("dealTitle"));
 		deal.setDealDescription((String) next.get("dealDescription"));
-		
+
 		try {
 			deal.setDealStartDate(((Date) formatter.parse((String)next.get("dealStartDate"))));
 			deal.setDealEndDate(((Date) formatter.parse((String)(next.get("dealEndDate")))));
@@ -49,7 +45,7 @@ public class DataUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		deal.setDealScore((Integer) next.get("dealScore"));
 		deal.setDealImage((File) next.get("dealImage"));
 
@@ -61,7 +57,7 @@ public class DataUtil {
 		business.setUsername((String) next.get("username"));
 		business.setVerified(next.get("isVerified") != null);
 		business.setBusinessCategory((String) next.get("businessCategory"));
-		business.setBusinessImage((File)next.get("businessImage"));
+		business.setBusinessImageURL((String)next.get("businessImageURL"));
 		business.setBusinessPhone((String)next.get("businessPhone"));
 
 		Address bAddress = new Address();
@@ -73,23 +69,22 @@ public class DataUtil {
 		bAddress.setSuburb((String) address.get("suburb"));
 
 		business.setBusinessAddress(bAddress);
-		
+
 		return business;
 
 	}
 
-	public static String saveImage(File businessImage, String type, String filename) {
-		String path = "/var/webapps/images/"+type.toLowerCase()+"/"+filename+".jpg";
-		
-		String prefix = FilenameUtils.getBaseName(businessImage.getName()); 
-		String suffix = FilenameUtils.getExtension(businessImage.getName());
-		File uploadLocation = new File("/var/webapps/images"+type.toLowerCase());
+	public static String saveImage(byte[] businessImage, String type, String filename) {
+		File uploadLocation = new File("/tmp/webapps/images"+type.toLowerCase());
+        if(!uploadLocation.exists()) {
+            uploadLocation.mkdirs();
+        }
 		File file = null;
 		OutputStream output = null;
 		java.io.InputStream input = null;
 		try {
-			file = File.createTempFile(prefix + "-", "." + suffix, uploadLocation);
-			input = new java.io.FileInputStream(businessImage);
+			file = File.createTempFile(filename+ "-", "." + type, uploadLocation);
+			input = new ByteArrayInputStream(businessImage);
 			output = new FileOutputStream(file);
 			IOUtils.copy(input, output);
 		} catch (IOException e) {

@@ -9,6 +9,18 @@
     </div>
 </div>
 
+<div class="clearfix fieldcontain ${hasErrors(bean: user, field: 'username', 'error')} ">
+    <label class="property-label" for="username">
+        <g:message code="user.username.label" default="Image"/>
+
+    </label>
+
+    <div class="input">
+        <input type="file" name="businessImage" />
+    </div>
+</div>
+
+
 <div class="clearfix fieldcontain ${hasErrors(bean: user, field: 'password', 'error')} ">
     <label class="property-label" for="password">
         <g:message code="user.password.label" default="Password"/>
