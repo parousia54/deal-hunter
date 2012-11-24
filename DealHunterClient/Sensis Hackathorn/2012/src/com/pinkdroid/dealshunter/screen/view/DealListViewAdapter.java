@@ -51,12 +51,12 @@ public class DealListViewAdapter extends BaseAdapter{
 			//bindDataToView(convertView, dealList.get(position));
 		}
 		
-		Typeface avenir65m = Typeface.createFromAsset(context.getAssets(), "fonts/avenir65m.ttf");
+		//Typeface avenir65m = Typeface.createFromAsset(context.getAssets(), "fonts/avenir65m.ttf");
 		Typeface avenir95bl = Typeface.createFromAsset(context.getAssets(), "fonts/avenir95bl.ttf");
-		TextView deal_listview_row_business_name = (TextView) convertView.findViewById(R.id.deal_listview_row_business_name);
-		deal_listview_row_business_name.setTypeface(avenir65m);
-		TextView deal_listview_row_business_address = (TextView) convertView.findViewById(R.id.deal_listview_row_business_address);
-		deal_listview_row_business_address.setTypeface(avenir95bl);
+		//TextView deal_listview_row_business_name = (TextView) convertView.findViewById(R.id.deal_listview_row_business_name);
+		//deal_listview_row_business_name.setTypeface(avenir65m);
+		//TextView deal_listview_row_business_address = (TextView) convertView.findViewById(R.id.deal_listview_row_business_address);
+		//deal_listview_row_business_address.setTypeface(avenir95bl);
 		TextView deal_listview_row_description = (TextView) convertView.findViewById(R.id.deal_listview_row_description);
 		deal_listview_row_description.setTypeface(avenir95bl);
 		return convertView;
