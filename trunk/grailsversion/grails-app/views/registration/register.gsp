@@ -11,7 +11,7 @@
 
 <div class="row">
     <div id="create-user" class="span9 scaffold-create" role="main">
-        <g:form action="handleRegister">
+        <g:uploadForm  action="handleRegister">
             <fieldset class="form">
                 <g:render template="form"/>
             </fieldset>
@@ -19,7 +19,7 @@
                 <g:submitButton name="create" class="save btn btn-primary"
                                 value="${message(code: 'default.button.create.label', default: 'Register')}"/>
             </fieldset>
-        </g:form>
+        </g:uploadForm>
     </div>
 </div>
 </body>

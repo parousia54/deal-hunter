@@ -9,7 +9,8 @@ public class Business {
 	String businessPhone;
 	boolean isVerified;
 	String businessCategory;
-	File businessImage;
+	byte[] businessImage;
+    String businessImageURL;
 
 	public Business() {
 		super();
@@ -17,7 +18,7 @@ public class Business {
 
 	public Business(String username, String password, Address businessAddress,
 			String businessPhone, boolean isVerified, String businessCategory,
-			File businessImage) {
+			byte[] businessImage) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -76,12 +77,19 @@ public class Business {
 		this.businessCategory = businessCategory;
 	}
 
-	public File getBusinessImage() {
+	public byte[] getBusinessImage() {
 		return businessImage;
 	}
 
-	public void setBusinessImage(File businessImage) {
+	public void setBusinessImage(byte[] businessImage) {
 		this.businessImage = businessImage;
 	}
-	
+
+    public void setBusinessImageURL(String businessImageURL) {
+        this.businessImageURL = businessImageURL;
+    }
+
+    public String getBusinessImageURL() {
+        return this.businessImageURL;
+    }
 }
