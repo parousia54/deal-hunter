@@ -132,66 +132,68 @@
         </TableLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dip" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <ImageView
-                    android:id="@+id/deal_listview_row_business_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/business_icon_0" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dip"
-                    android:layout_weight="1" >
-
-                    <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical" >
-
-                        <TextView
-                            android:id="@+id/deal_listview_row_business_name1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="\@Parlour Hairdressing"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/deal_listview_row_verified_icon"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dip"
-                            android:src="@drawable/verified" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/deal_listview_row_business_address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="106 Chapel St, St Kilda Victoria 3182"
-                        android:textSize="11sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
+                       >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" 
+                            android:gravity="center"
+                            android:padding="3dip">
+
+                            <ImageView
+                                android:id="@+id/deal_listview_row_business_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/business_icon_0" 
+                                android:layout_gravity="center"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical" >
+
+                                    <TextView
+                                        android:id="@+id/deal_listview_row_business_name"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="\@Parlour Hairdressing"
+                                        android:textStyle="normal" />
+
+                                    <ImageView
+                                        android:id="@+id/deal_listview_row_verified_icon"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dip"
+                                        android:src="@drawable/verified" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content" >
+
+                                <TextView
+                                    android:id="@+id/deal_listview_row_business_address"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="106 Chapel St, St Kilda Victoria 3182"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
 
         <TableLayout
             android:layout_width="fill_parent"
@@ -245,59 +247,61 @@
             </TableRow>
         </TableLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dip"
-                android:paddingTop="5dip"
-                 android:gravity="center"
-                android:drawableLeft="@drawable/yelplogo"/>
-            <TextView
-                android:id="@+id/deal_detail_reviewer_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingLeft="5dip"
-                android:singleLine="true"
-                android:maxWidth="100dip"
-                android:text="Hannah O." />
-            <TextView
-                android:id="@+id/deal_detail_starts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:paddingLeft="5dip"
-                android:paddingTop="5dip"
-                android:drawableLeft="@drawable/stars_4"/>
-            <TextView
-                android:id="@+id/deal_detail_review_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textSize="9sp"
-                android:paddingLeft="5dip"
-                android:text="20/12/2012" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/review_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:maxLines="8"
-            android:padding="5dip"
-            android:text="Went for a colour - Geoff was great, mixed a fabulous red for me and was friendly and keen for a chat. Unfortunately a different staff member washed my hair and there was lots of wincing at the hair pulling and rough treatment. A third staff member did the blow dry, which looked good but again lots of pulling and ouchies in my follicles. I&apos;ll definitely be back, but I&apos;ll ask for Geoff to do the blow dry too." />
-    </LinearLayout>
-
+	<ScrollView 
+	    android:layout_width="match_parent"
+        android:layout_height="130dip"
+        >
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" >
+	
+	        <LinearLayout
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical" >
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:paddingLeft="5dip"
+	                android:paddingTop="5dip"
+	                 android:gravity="center"
+	                android:drawableLeft="@drawable/yelplogo"/>
+	            <TextView
+	                android:id="@+id/deal_detail_reviewer_name"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:gravity="center"
+	                android:paddingLeft="5dip"
+	                android:singleLine="true"
+	                android:maxWidth="100dip"
+	                android:text="Hannah O." />
+	            <TextView
+	                android:id="@+id/deal_detail_starts"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:gravity="center_vertical"
+	                android:paddingLeft="5dip"
+	                android:paddingTop="5dip"
+	                android:drawableLeft="@drawable/stars_4"/>
+	            <TextView
+	                android:id="@+id/deal_detail_review_time"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:gravity="center_horizontal"
+	                android:textSize="9sp"
+	                android:paddingLeft="5dip"
+	                android:text="20/12/2012" />
+	        </LinearLayout>
+	
+	        <TextView
+	            android:id="@+id/review_text"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center_vertical"
+	            android:padding="5dip"
+	            android:text="Went for a colour - Geoff was great, mixed a fabulous red for me and was friendly and keen for a chat. Unfortunately a different staff member washed my hair and there was lots of wincing at the hair pulling and rough treatment. A third staff member did the blow dry, which looked good but again lots of pulling and ouchies in my follicles. I&apos;ll definitely be back, but I&apos;ll ask for Geoff to do the blow dry too." />
+	    </LinearLayout>
+	</ScrollView>
 </LinearLayout>
