@@ -34,7 +34,7 @@
             <div class="nav-collapse collapse">
                 <!-- .nav, .navbar-search, .navbar-form, etc -->
                 <ul class="nav">
-                    <li><a href="#">Manage Deals</a></li>
+                    <li><a href="${createLink(controller: 'deal')}">Manage Deals</a></li>
                 </ul>
             </div>
 
