@@ -13,9 +13,10 @@ class DealController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-
+        def dealList = []
+        def dealTotal = 0
         //TODO : Replace Deal.list() with mongo call, total count for pagination
-        [dealInstanceList: Deal.list(params), dealInstanceTotal: Deal.count()]
+        [dealInstanceList: dealList, dealInstanceTotal: dealTotal]
     }
 
     def create() {
@@ -30,12 +31,13 @@ class DealController {
 
     def show() {
         //TODO : Fetch Deal
+        def deal = null
         [dealInstance: deal]
     }
 
     def edit() {
        //TODO : Fetch Deal and assign it to deal Instance
-
+        def deal = null
         [dealInstance: deal]
     }
 
