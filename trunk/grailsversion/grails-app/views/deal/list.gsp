@@ -33,8 +33,6 @@
                 
                 <g:sortableColumn property="dealEndDate" title="${message(code: 'deal.dealEndDate.label', default: 'Deal End Date')}"/>
                 
-                <g:sortableColumn property="dealImage" title="${message(code: 'deal.dealImage.label', default: 'Deal Image')}"/>
-                
                 <g:sortableColumn property="dealScore" title="${message(code: 'deal.dealScore.label', default: 'Deal Score')}"/>
                 
             </tr>
@@ -50,8 +48,6 @@
                     <td><mat:formatDate date="${dealInstance.dealStartDate}"/></td>
                     
                     <td><mat:formatDate date="${dealInstance.dealEndDate}"/></td>
-                    
-                    <td>${fieldValue(bean: dealInstance, field: "dealImage")}</td>
                     
                     <td>${fieldValue(bean: dealInstance, field: "dealScore")}</td>
                     

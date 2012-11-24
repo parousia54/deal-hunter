@@ -47,7 +47,7 @@ public class DataUtil {
 		}
 
 		deal.setDealScore((Integer) next.get("dealScore"));
-		deal.setDealImage((File) next.get("dealImage"));
+		deal.setDealImageURL((String) next.get("dealImageURL"));
 
 		return deal;
 	}

@@ -50,9 +50,9 @@ public class DatabaseHelper {
 	
 	public boolean registerUser(Business business)
 	{
-//		File businessImage = business.getBusinessImage();
-//		business.setBusinessImageURL(DataUtil.saveImage(businessImage, "Business", business.getUsername()));
-		
+		byte[] businessImage = business.getBusinessImage();
+		business.setBusinessImageURL(DataUtil.saveImage(businessImage, "Business", business.getUsername()));
+		business.setBusinessImage(null);
 		DBObject dbObject = (DBObject)JSON.parse(DataUtil.businesstoJSON(business));
 		businessCollection.insert(dbObject);
 		return true;
@@ -60,6 +60,9 @@ public class DatabaseHelper {
 	
 	public boolean createDeal(Deal deal)
 	{
+        byte[] dealImage = deal.getDealImage();
+        deal.setDealImageURL(DataUtil.saveImage(dealImage, "Deal", deal.getDealTitle().replaceAll(" ", "_")));
+        deal.setDealImage(null);
 		DBObject dbObject = (DBObject)JSON.parse(DataUtil.dealToJSON(deal));
 		dealCollection.insert(dbObject);
 		return true;
