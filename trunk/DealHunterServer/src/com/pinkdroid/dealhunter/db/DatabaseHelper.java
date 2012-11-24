@@ -2,13 +2,15 @@ package com.pinkdroid.dealhunter.db;
 
 import java.net.UnknownHostException;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
+import com.mongodb.util.JSON;
 import com.pinkdroid.dealhunter.model.User;
+import com.pinkdroid.dealhunter.util.GSONUtil;
 
 public class DatabaseHelper {
 	
@@ -37,11 +39,12 @@ public class DatabaseHelper {
 	
 	public boolean registerUser(User user)
 	{
-		BasicDBObject document= new BasicDBObject();
-		
-        collection.insert(document);
-        return false;
+		DBObject dbObject = (DBObject)JSON.parse(GSONUtil.UsertoJSON(user));
+        collection.insert(dbObject);
+        return true;
 	}
+	
+	
 
 
 }
