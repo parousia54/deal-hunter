@@ -35,7 +35,7 @@
                                 android:id="@+id/deal_listview_row_business_icon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="fill_parent"
-                                android:src="@drawable/business_icon" />
+                                android:src="@drawable/business_icon_0" />
                         </LinearLayout>
 
                         <LinearLayout
