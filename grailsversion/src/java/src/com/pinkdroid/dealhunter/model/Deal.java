@@ -1,11 +1,8 @@
 package src.com.pinkdroid.dealhunter.model;
 
-import org.codehaus.groovy.grails.validation.Validateable;
-
 import java.io.File;
 import java.util.Date;
 
-@Validateable
 public class Deal {
 	String id;
 	String dealTitle;
@@ -97,6 +94,5 @@ public class Deal {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
 
 }
