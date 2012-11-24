@@ -19,7 +19,7 @@ public class Deal {
 
 	public Deal(String id, String dealTitle, String dealDescription,
 			File dealImage, Date dealStartDate, Date dealEndDate,
-			int dealScore, String businessId) {
+			int dealScore, String username) {
 		super();
 		this.id = id;
 		this.dealTitle = dealTitle;

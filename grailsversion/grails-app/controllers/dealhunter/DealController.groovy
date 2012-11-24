@@ -2,43 +2,48 @@ package dealhunter
 
 import org.springframework.dao.DataIntegrityViolationException
 import src.com.pinkdroid.dealhunter.model.Deal
+import src.com.pinkdroid.dealhunter.db.DatabaseHelper
+import javax.annotation.PostConstruct
 
 class DealController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+
+    DatabaseHelper dbHelper
+
+    @PostConstruct public void init() {
+        dbHelper = new DatabaseHelper()
+    }
 
     def index() {
         redirect(action: "list", params: params)
     }
 
     def list() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        def dealList = []
-        def dealTotal = 0
-        //TODO : Replace Deal.list() with mongo call, total count for pagination
-        [dealInstanceList: dealList, dealInstanceTotal: dealTotal]
+        List<Deal> dealList = dbHelper.getDealsforBusiness(session.username)
+        [dealInstanceList: dealList]
     }
 
     def create() {
-        [dealInstance: new Deal()]
+        [deal: new Deal()]
     }
 
     def save(Deal deal) {
-        //TODO : Save call
+        deal.username = session.username
+        dbHelper.createDeal(deal)
 		flash.message = message(code: 'default.created.message', args: [message(code: 'deal.label', default: 'Deal'), deal.id])
-        redirect(action: "show", id: deal.id)
+        redirect(action: "list")
     }
 
     def show() {
-        //TODO : Fetch Deal
-        def deal = null
-        [dealInstance: deal]
+        Deal deal = dbHelper.getDeal(params.id)
+        [deal: deal]
     }
 
     def edit() {
        //TODO : Fetch Deal and assign it to deal Instance
         def deal = null
-        [dealInstance: deal]
+        [deal: deal]
     }
 
     def update(Deal deal) {

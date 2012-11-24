@@ -37,6 +37,8 @@ public class DataUtil {
 
 	public static Deal dbObjectToDeal(DBObject next) {
 		Deal deal = new Deal();
+        deal.setId((String)next.get("_id").toString());
+        deal.setUsername((String)next.get("username"));
 		deal.setDealTitle((String) next.get("dealTitle"));
 		deal.setDealDescription((String) next.get("dealDescription"));
 		
@@ -48,7 +50,7 @@ public class DataUtil {
 			e.printStackTrace();
 		}
 		
-		deal.setDealScore((int) next.get("dealScore"));
+		deal.setDealScore((Integer) next.get("dealScore"));
 		deal.setDealImage((File) next.get("dealImage"));
 
 		return deal;
@@ -57,11 +59,11 @@ public class DataUtil {
 	public static Business dbObjectToBusiness(DBObject next) {
 		Business business = new Business();
 		business.setUsername((String) next.get("username"));
-		business.setVerified((boolean) next.get("isVerfied"));
+		business.setVerified(next.get("isVerified") != null);
 		business.setBusinessCategory((String) next.get("businessCategory"));
-		business.setBusinessImage((File)next.get("bussinessImage"));
+		business.setBusinessImage((File)next.get("businessImage"));
 		business.setBusinessPhone((String)next.get("businessPhone"));
-		
+
 		Address bAddress = new Address();
 		DBObject address = (DBObject) next.get("businessAddress");
 		bAddress.setPostCode((String) address.get("postCode"));
@@ -69,7 +71,7 @@ public class DataUtil {
 		bAddress.setStreetName((String) address.get("streetName"));
 		bAddress.setStreetNumber((String) address.get("streetNumber"));
 		bAddress.setSuburb((String) address.get("suburb"));
-		
+
 		business.setBusinessAddress(bAddress);
 		
 		return business;

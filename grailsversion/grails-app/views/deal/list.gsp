@@ -59,10 +59,6 @@
             </g:each>
             </tbody>
         </table>
-
-        <div id="pagination">
-            <g:paginate total="${dealInstanceTotal}"/>
-        </div>
     </div>
 </div>
 </body>
