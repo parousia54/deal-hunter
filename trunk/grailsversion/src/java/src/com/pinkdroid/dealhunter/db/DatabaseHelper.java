@@ -9,7 +9,7 @@ import org.bson.types.ObjectId;
 
 import src.com.pinkdroid.dealhunter.model.Business;
 import src.com.pinkdroid.dealhunter.model.Deal;
-import src.com.pinkdroid.dealhunter.util.GSONUtil;
+import src.com.pinkdroid.dealhunter.util.DataUtil;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
@@ -51,16 +51,16 @@ public class DatabaseHelper {
 	public boolean registerUser(Business business)
 	{
 		File businessImage = business.getBusinessImage();
+//		business.setBusinessImageURL(DataUtil.saveImage(businessImage, "Business", business.getUsername()));
 		
-		
-		DBObject dbObject = (DBObject)JSON.parse(GSONUtil.businesstoJSON(business));
+		DBObject dbObject = (DBObject)JSON.parse(DataUtil.businesstoJSON(business));
 		businessCollection.insert(dbObject);
 		return true;
 	}
 	
 	public boolean createDeal(Deal deal)
 	{
-		DBObject dbObject = (DBObject)JSON.parse(GSONUtil.dealToJSON(deal));
+		DBObject dbObject = (DBObject)JSON.parse(DataUtil.dealToJSON(deal));
 		dealCollection.insert(dbObject);
 		return true;
 	}
@@ -81,7 +81,7 @@ public class DatabaseHelper {
 		List<Deal> dealList = new ArrayList<Deal>();
 		while(found.hasNext())
 		{
-			dealList.add(GSONUtil.jsonToDeal(found.next()));
+			dealList.add(DataUtil.dbObjectToDeal(found.next()));
 		}
 		return dealList;
 		
