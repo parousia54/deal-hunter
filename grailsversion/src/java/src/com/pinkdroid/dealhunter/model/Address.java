@@ -1,6 +1,6 @@
 package src.com.pinkdroid.dealhunter.model;
 
-import org.codehaus.groovy.grails.validation.Validateable
+import org.codehaus.groovy.grails.validation.Validateable;
 
 @Validateable
 public class Address {
