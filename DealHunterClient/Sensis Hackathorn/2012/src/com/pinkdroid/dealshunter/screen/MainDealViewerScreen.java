@@ -1,5 +1,7 @@
 package com.pinkdroid.dealshunter.screen;
 
+import java.util.List;
+
 import com.pinkdroid.dealshunter.R;
 import com.pinkdroid.dealshunter.R.id;
 import com.pinkdroid.dealshunter.R.layout;
@@ -12,6 +14,8 @@ import com.pinkdroid.dealshunter.screen.view.DealViewerPageAdapter;
 import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
+import android.app.SearchManager;
+import android.app.SearchableInfo;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -26,6 +30,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 public class MainDealViewerScreen extends FragmentActivity implements ActionBar.TabListener {
@@ -37,7 +42,7 @@ public class MainDealViewerScreen extends FragmentActivity implements ActionBar.
      * to switch to a {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     DealViewerPageAdapter mSectionsPagerAdapter;
-
+    private SearchView mSearchView;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -84,10 +89,41 @@ public class MainDealViewerScreen extends FragmentActivity implements ActionBar.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main_deal_viewer_screen, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        mSearchView = (SearchView) searchItem.getActionView();
+        setupSearchView(mSearchView);
         return true;
     }
 
-    
+    private void setupSearchView(SearchView searchView) {
+    	searchView.setIconifiedByDefault(false);
+    	SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        if (searchManager != null) {
+            List<SearchableInfo> searchables = searchManager.getSearchablesInGlobalSearch();
+ 
+            SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
+            for (SearchableInfo inf : searchables) {
+                if (inf.getSuggestAuthority() != null
+                        && inf.getSuggestAuthority().startsWith("applications")) {
+                    info = inf;
+                }
+            }
+            mSearchView.setSearchableInfo(info);
+        }
+ 
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+			
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				return false;
+			}
+			
+			@Override
+			public boolean onQueryTextChange(String newText) {
+				return false;
+			}
+		});
+    }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
@@ -114,4 +150,6 @@ public class MainDealViewerScreen extends FragmentActivity implements ActionBar.
     	return dialog;
 
     }
+    
+   
 }
