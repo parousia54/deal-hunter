@@ -1,6 +1,3 @@
-<%@ page import="dealhunter.User" %>
-
-
 
 <div class="clearfix fieldcontain ${hasErrors(bean: userInstance, field: 'businessAddress', 'error')} required">
     <label class="property-label" for="businessAddress">
