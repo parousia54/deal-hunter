@@ -7,18 +7,20 @@ public class Deal {
 	String id;
 	String dealTitle;
 	String dealDescription;
-	File dealImage;
+	byte[] dealImage;
 	Date dealStartDate;
 	Date dealEndDate;
 	int dealScore; // similar to reddit upvote/downvote score
 	String username;
+
+    String dealImageURL;
 
 	public Deal() {
 		super();
 	}
 
 	public Deal(String id, String dealTitle, String dealDescription,
-			File dealImage, Date dealStartDate, Date dealEndDate,
+			byte[] dealImage, Date dealStartDate, Date dealEndDate,
 			int dealScore, String username) {
 		super();
 		this.id = id;
@@ -55,11 +57,11 @@ public class Deal {
 		this.dealDescription = dealDescription;
 	}
 
-	public File getDealImage() {
+	public byte[] getDealImage() {
 		return dealImage;
 	}
 
-	public void setDealImage(File dealImage) {
+	public void setDealImage(byte[] dealImage) {
 		this.dealImage = dealImage;
 	}
 
@@ -94,5 +96,13 @@ public class Deal {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+    public String getDealImageURL() {
+        return dealImageURL;
+    }
+
+    public void setDealImageURL(String dealImageURL) {
+        this.dealImageURL = dealImageURL;
+    }
 
 }

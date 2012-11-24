@@ -20,7 +20,7 @@
         <g:link class="btn" action="list"><g:message code="default.list.label" args="[entityName]"/></g:link>
     </div>
 
-    <div id="create-deal" class="span9 scaffold-create" role="main">
+    <div id="create-deal" class="span15 scaffold-create" role="main">
         <g:hasErrors bean="${deal}">
             <ul class="errors" role="alert">
                 <g:eachError bean="${deal}" var="error">

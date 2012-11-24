@@ -23,6 +23,8 @@
     <div class="span9">
         <div class="property-list deal">
             
+            <img src="${createLink(controller: 'image', params:[path: deal.dealImageURL])}"/>
+            
             <p class="clearfix">
                 <span class="property-label"><g:message code="deal.dealTitle.label" default="Deal Title"/></span>
                 
@@ -48,11 +50,6 @@
                 <span class="property-label"><g:message code="deal.dealEndDate.label" default="Deal End Date"/></span>
                 
                 <span class="property-value" aria-labelledby="dealEndDate-label"><mat:formatDate date="${deal?.dealEndDate}"/></span>
-                
-            </p>
-            
-            <p class="clearfix">
-                <span class="property-label"><g:message code="deal.dealImage.label" default="Deal Image"/></span>
                 
             </p>
             
