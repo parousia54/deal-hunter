@@ -1,11 +1,17 @@
 package src.com.pinkdroid.dealhunter.db;
 
+import java.io.File;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.types.ObjectId;
 
 import src.com.pinkdroid.dealhunter.model.Business;
 import src.com.pinkdroid.dealhunter.model.Deal;
 import src.com.pinkdroid.dealhunter.util.GSONUtil;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -31,7 +37,7 @@ public class DatabaseHelper {
 			auth = db.authenticate("pink", "dr0!d".toCharArray());
 			if (auth) {
 				businessCollection = db.getCollection("business");
-				businessCollection = db.getCollection("deals");
+				dealCollection = db.getCollection("deals");
 			}
 
 		} catch (UnknownHostException e) {
@@ -44,6 +50,9 @@ public class DatabaseHelper {
 	
 	public boolean registerUser(Business business)
 	{
+		File businessImage = business.getBusinessImage();
+		
+		
 		DBObject dbObject = (DBObject)JSON.parse(GSONUtil.businesstoJSON(business));
 		businessCollection.insert(dbObject);
 		return true;
@@ -57,15 +66,25 @@ public class DatabaseHelper {
 	}
 	public boolean deleteDeal(String _id)
 	{
-		DBObject obj = new BasicDBObjectBuilder().add("_id", "myid").get();
+		DBObject obj = new BasicDBObjectBuilder().add("_id", "_id").get();
 		if(obj != null)
 		{
 			dealCollection.remove(obj);
 			return true;
 		}
 		return false;
+	}
+	public List<Deal> getDealsforBusiness(String businessId)
+	{
+		DBObject searchById = new BasicDBObject("businessId", new ObjectId(businessId));
+		DBCursor found = dealCollection.find(searchById);
+		List<Deal> dealList = new ArrayList<Deal>();
+		while(found.hasNext())
+		{
+			dealList.add(GSONUtil.jsonToDeal(found.next()));
+		}
+		return dealList;
 		
 	}
-
 
 }
