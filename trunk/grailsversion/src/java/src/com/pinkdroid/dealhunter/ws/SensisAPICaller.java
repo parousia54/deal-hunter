@@ -4,8 +4,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.message.BasicNameValuePair;
+
 import src.com.pinkdroid.dealhunter.model.Address;
 import src.com.pinkdroid.dealhunter.network.NetworkEngine;
+
+import com.amazonaws.util.json.JSONArray;
+import com.amazonaws.util.json.JSONObject;
 
 public class SensisAPICaller {
 
@@ -46,6 +53,71 @@ public class SensisAPICaller {
 	
 	public boolean isRegistered(String businessName, Address businessAddress, String businessPhone )
 	{
+		NetworkEngine nengine = NetworkEngine.getInstance();
+		Hashtable<String, String> headers = new Hashtable<String, String>();
+		ArrayList<NameValuePair> parameters = new ArrayList<NameValuePair>();
+		
+		parameters.add(new BasicNameValuePair(KEY, getSensisApiKey()));
+		parameters.add(new BasicNameValuePair(QUERY, ""+businessName));
+		parameters.add(new BasicNameValuePair(LOCATION, ""+businessAddress.getSuburb()));
+		parameters.add(new BasicNameValuePair(POSTCODE, ""+businessAddress.getPostCode()));
+		
+		
+		try {
+
+			byte[] bytes = null;
+
+			for (int i = 0; i < RETRIES && bytes == null; i++)
+				bytes = nengine.getRawPair(API_URL, headers, parameters,
+					TIMEOUT);
+
+			if (bytes != null) {
+				String result = new String(bytes);
+				JSONObject json = new JSONObject(result);
+				JSONArray array = json.getJSONArray("results");
+				
+				System.out.println("111");
+				if (array.length() == 0) return false;
+
+				System.out.println("222");
+				for (int i = 0; i < array.length(); i++)
+				{
+					System.out.println("333");
+					JSONObject row = array.getJSONObject(i);
+					if (row == null)
+						return false;
+
+					System.out.println("444");
+					JSONObject prime = row.getJSONObject("primaryContacts");
+					if (prime == null) 
+						continue;
+
+					System.out.println("555");
+					String type = prime.getString("type");
+					String phone = "";
+					if("PHONE".matches(type))
+					{
+						phone = prime.getString("value");
+					}
+					if(phone.matches(businessPhone))
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// http://api.sensis.
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 }

@@ -10,12 +10,16 @@ public class Deal {
 	File dealImage;
 	Date dealStartDate;
 	Date dealEndDate;
-	int dealScore; //similar to reddit upvote/downvote score
+	int dealScore; // similar to reddit upvote/downvote score
+	String businessId;
+
 	public Deal() {
 		super();
 	}
+
 	public Deal(String id, String dealTitle, String dealDescription,
-			File dealImage, Date dealStartDate, Date dealEndDate, int dealScore) {
+			File dealImage, Date dealStartDate, Date dealEndDate,
+			int dealScore, String businessId) {
 		super();
 		this.id = id;
 		this.dealTitle = dealTitle;
@@ -24,50 +28,72 @@ public class Deal {
 		this.dealStartDate = dealStartDate;
 		this.dealEndDate = dealEndDate;
 		this.dealScore = dealScore;
+		this.businessId = businessId;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getDealTitle() {
 		return dealTitle;
 	}
+
 	public void setDealTitle(String dealTitle) {
 		this.dealTitle = dealTitle;
 	}
+
 	public String getDealDescription() {
 		return dealDescription;
 	}
+
 	public void setDealDescription(String dealDescription) {
 		this.dealDescription = dealDescription;
 	}
+
 	public File getDealImage() {
 		return dealImage;
 	}
+
 	public void setDealImage(File dealImage) {
 		this.dealImage = dealImage;
 	}
+
 	public Date getDealStartDate() {
 		return dealStartDate;
 	}
+
 	public void setDealStartDate(Date dealStartDate) {
 		this.dealStartDate = dealStartDate;
 	}
+
 	public Date getDealEndDate() {
 		return dealEndDate;
 	}
+
 	public void setDealEndDate(Date dealEndDate) {
 		this.dealEndDate = dealEndDate;
 	}
+
 	public int getDealScore() {
 		return dealScore;
 	}
+
 	public void setDealScore(int dealScore) {
 		this.dealScore = dealScore;
 	}
-	
+
+	public String getBusinessId() {
+		return businessId;
+	}
+
+	public void setBusinessId(String businessId) {
+		this.businessId = businessId;
+	}
 	
 
 }

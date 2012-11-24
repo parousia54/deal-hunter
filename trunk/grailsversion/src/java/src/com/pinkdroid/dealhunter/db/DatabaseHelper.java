@@ -3,19 +3,23 @@ package src.com.pinkdroid.dealhunter.db;
 import java.net.UnknownHostException;
 
 import src.com.pinkdroid.dealhunter.model.Business;
+import src.com.pinkdroid.dealhunter.model.Deal;
+import src.com.pinkdroid.dealhunter.util.GSONUtil;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
+import com.mongodb.util.JSON;
 
 public class DatabaseHelper {
 	
 	private Mongo mongo;
 	private DB db;
-	DBCollection collection;
+	DBCollection businessCollection;
+	DBCollection dealCollection;
 	DBCursor cursor;
 	private boolean auth;
 	
@@ -25,7 +29,8 @@ public class DatabaseHelper {
 			db = mongo.getDB("deal-hunter-db");
 			auth = db.authenticate("pink", "dr0!d".toCharArray());
 			if (auth) {
-				collection = db.getCollection("dummyColl");
+				businessCollection = db.getCollection("business");
+				businessCollection = db.getCollection("deals");
 			}
 
 		} catch (UnknownHostException e) {
@@ -36,12 +41,18 @@ public class DatabaseHelper {
 
 	}
 	
-	public boolean registerUser(Business user)
+	public boolean registerUser(Business business)
 	{
-		BasicDBObject document= new BasicDBObject();
-		
-        collection.insert(document);
-        return false;
+		DBObject dbObject = (DBObject)JSON.parse(GSONUtil.businesstoJSON(business));
+		businessCollection.insert(dbObject);
+		return true;
+	}
+	
+	public boolean createDeal(Deal deal)
+	{
+		DBObject dbObject = (DBObject)JSON.parse(GSONUtil.dealToJSON(deal));
+		dealCollection.insert(dbObject);
+		return true;
 	}
 
 
