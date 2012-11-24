@@ -1,7 +1,3 @@
-<%@ page import="dealhunter.Deal" %>
-
-
-
 <div class="clearfix fieldcontain ${hasErrors(bean: deal, field: 'dealTitle', 'error')} ">
     <label class="property-label" for="dealTitle">
         <g:message code="deal.dealTitle.label" default="Deal Title"/>
