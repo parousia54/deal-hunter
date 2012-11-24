@@ -11,7 +11,7 @@
 
 <div class="row">
     <div id="create-user" class="span9 scaffold-create" role="main">
-        <g:form action="save">
+        <g:form action="handleRegister">
             <fieldset class="form">
                 <g:render template="form"/>
             </fieldset>
