@@ -1,5 +1,3 @@
-
-<%@ page import="dealhunter.Deal" %>
 <!doctype html>
 <html>
 <head>
