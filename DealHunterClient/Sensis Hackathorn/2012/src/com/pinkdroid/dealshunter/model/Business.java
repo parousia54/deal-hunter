@@ -14,11 +14,11 @@ public class Business {
 	public static ArrayList<Business> businesses = new ArrayList<Business>();
 
 	static {
-		businesses.add(new Business(1, new Address("0", "106", "Chapel St", "St Kilda", "Victoria", "3182"), true, "Parlour Hairdressing", "(03) 9593 6601", "1"));
-		businesses.add(new Business(2, new Address("0", "314", "Bourke St", "Melbourne CBD", "Victoria", "3000"), false, "MYERS", "(03) 9593 6601", "2"));
-		businesses.add(new Business(3, new Address("0", "45", "Collins St", "Melbourne CBD", "Victoria", "3000"), true, "DENDY Cinema", "(03) 9675 3345", "3"));
-		businesses.add(new Business(4, new Address("0", "140", "Bourke St", "Melbourne CBD", "Victoria", "3000"), false, "Hoyts Cinema", "(03) 9663 3303", "4"));
-		businesses.add(new Business(5, new Address("0", "106", "Lygon St", "Carlton", "Victoria", "3053"), true, "Mai Thai Vietnamese Restaurant", "(03) 9077 8935", "5"));
+		businesses.add(new Business(0, new Address("0", "106", "Chapel St", "St Kilda", "Victoria", "3182"), true, "Parlour Hairdressing", "(03) 9593 6601", "0"));
+		businesses.add(new Business(1, new Address("0", "314", "Bourke St", "Melbourne CBD", "Victoria", "3000"), false, "MYERS", "(03) 9593 6601", "1"));
+		businesses.add(new Business(2, new Address("0", "45", "Collins St", "Melbourne CBD", "Victoria", "3000"), true, "DENDY Cinema", "(03) 9675 3345", "2"));
+		businesses.add(new Business(3, new Address("0", "140", "Bourke St", "Melbourne CBD", "Victoria", "3000"), false, "Hoyts Cinema", "(03) 9663 3303", "3"));
+		businesses.add(new Business(4, new Address("0", "106", "Lygon St", "Carlton", "Victoria", "3053"), true, "Mai Thai Vietnamese Restaurant", "(03) 9077 8935", "4"));
 	}
 
 	public Business(int businessId, Address address, boolean isVerified, String businessName, String businessPhone, String logoUrl) {
@@ -151,6 +151,15 @@ public class Business {
 
 		public void setCountry(String country) {
 			this.country = country;
+		}
+		
+		public String toString(){
+			String r = "";
+			if(!this.unitNumber.equalsIgnoreCase("0")){
+				r += this.unitNumber + "/";
+			}
+			r += this.streetNumber + " " + this.streetName + " " + this.suburb + " " + this.country;
+			return r;
 		}
 	}
 }
