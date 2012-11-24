@@ -2,7 +2,7 @@ package src.com.pinkdroid.dealhunter.controller
 
 import src.com.pinkdroid.dealhunter.db.DatabaseHelper
 import javax.annotation.PostConstruct
-import src.com.pinkdroid.dealhunter.model.User
+import src.com.pinkdroid.dealhunter.model.Business
 
 public class RegistrationController {
 
@@ -14,7 +14,7 @@ public class RegistrationController {
         return
 	}
 
-    def handleRegister(User user) {
+    def handleRegister(Business user) {
         session.username = user.username
 
         //TODO : Call to DB Save
