@@ -74,7 +74,7 @@ public class DealListViewAdapter extends BaseAdapter{
 			Business business = deal.getBusinessInfo();
 			businessNameTV.setText(business.getBusinessName());
 			addressTV.setText(business.getAddress().toString());
-			businessLogo.setImageURI(Uri.parse(business.getLogoUrl()));
+//			businessLogo.setImageURI(Uri.parse(business.getLogoUrl()));
 			//Todo; download and set logo here
 			
 			discountDescriptionTV.setText(deal.getDiscountDescription());
@@ -85,7 +85,7 @@ public class DealListViewAdapter extends BaseAdapter{
 			thumbDownTV.setText(feedback.getThumbDownNo());
 			
 			endTimeTV.setText(deal.getEndTime().toString());
-			dealImage.setImageURI(Uri.parse(deal.getImageUrl()));
+//			dealImage.setImageURI(Uri.parse(deal.getImageUrl()));
 			verifiedIcon.setImageResource(R.drawable.verified);
 		}
 		

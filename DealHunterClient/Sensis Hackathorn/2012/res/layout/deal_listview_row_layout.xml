@@ -65,8 +65,8 @@
                                         android:id="@+id/deal_listview_row_verified_icon"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:src="@drawable/verified" 
-                                        android:layout_marginLeft="5dip"/>
+                                        android:layout_marginLeft="5dip"
+                                        android:src="@drawable/verified" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -97,7 +97,7 @@
                                     android:textSize="10sp" />
                             </LinearLayout>
                         </LinearLayout>
-"
+
                     </LinearLayout>
                 </LinearLayout>
 

@@ -5,9 +5,12 @@ import com.pinkdroid.dealshunter.R.id;
 import com.pinkdroid.dealshunter.R.layout;
 import com.pinkdroid.dealshunter.R.menu;
 import com.pinkdroid.dealshunter.R.string;
+import com.pinkdroid.dealshunter.model.Deal;
+import com.pinkdroid.dealshunter.screen.view.DealDetailDialog;
 import com.pinkdroid.dealshunter.screen.view.DealViewerPageAdapter;
 
 import android.app.ActionBar;
+import android.app.Dialog;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
@@ -99,5 +102,16 @@ public class MainDealViewerScreen extends FragmentActivity implements ActionBar.
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }   
+    private Deal selectedDeal;
+    @Override
+    public Dialog onCreateDialog(int id){
+    	Dialog dialog = new Dialog(this);
+    	switch(id){
+    	case DealDetailDialog.DIALOG_TYPE_DEAL_DETAIL:{
+    		return new DealDetailDialog(this, selectedDeal);
+    	}
+    	}
+    	return dialog;
 
+    }
 }
