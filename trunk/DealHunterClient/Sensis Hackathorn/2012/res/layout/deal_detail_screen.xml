@@ -249,7 +249,7 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="220dip"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <TextView
@@ -257,7 +257,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_margin="8dip"
+            android:padding="15dip"
             android:text="Review"
             android:textSize="18sp"
             android:textStyle="bold" />
