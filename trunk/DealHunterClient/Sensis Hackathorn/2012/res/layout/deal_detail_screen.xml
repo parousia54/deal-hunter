@@ -165,7 +165,7 @@
                         android:gravity="center_vertical" >
 
                         <TextView
-                            android:id="@+id/deal_listview_row_business_name"
+                            android:id="@+id/deal_listview_row_business_name1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yamaha Motor"
