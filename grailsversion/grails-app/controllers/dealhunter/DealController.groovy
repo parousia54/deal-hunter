@@ -20,7 +20,7 @@ class DealController {
     }
 
     def create() {
-        [dealInstance: new Deal(params)]
+        [dealInstance: new Deal()]
     }
 
     def save(Deal deal) {
