@@ -35,6 +35,9 @@
                                 android:id="@+id/deal_listview_row_business_icon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="fill_parent"
+                                android:paddingTop="3dip"
+                                android:paddingLeft="3dip"
+                                android:paddingRight="3dip"
                                 android:src="@drawable/business_icon_0" />
                         </LinearLayout>
 
@@ -65,8 +68,7 @@
                                         android:id="@+id/deal_listview_row_verified_icon"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginLeft="5dip"
-                                        android:src="@drawable/verified" />
+                                        android:layout_marginLeft="5dip"/>
                                 </LinearLayout>
                             </LinearLayout>
 
