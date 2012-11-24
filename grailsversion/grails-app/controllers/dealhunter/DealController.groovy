@@ -31,7 +31,7 @@ class DealController {
     def save(Deal deal) {
         deal.username = session.username
         dbHelper.createDeal(deal)
-		flash.message = message(code: 'default.created.message', args: [message(code: 'deal.label', default: 'Deal'), deal.id])
+        flash.message = message(code: 'default.created.message', args: [message(code: 'deal.label', default: 'Deal'), deal.id])
         redirect(action: "list")
     }
 
@@ -41,7 +41,7 @@ class DealController {
     }
 
     def edit() {
-       //TODO : Fetch Deal and assign it to deal Instance
+        //TODO : Fetch Deal and assign it to deal Instance
         def deal = null
         [deal: deal]
     }
@@ -52,10 +52,11 @@ class DealController {
         redirect(action: "show", id: deal.id)
     }
 
-    def delete(Deal deal) {
-            //TODO : Delete call
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'deal.label', default: 'Deal'), params.id])
-            redirect(action: "list")
+    def delete() {
+        //TODO : Delete call
+        dbHelper.deleteDeal( params.id)
+        flash.message = message(code: 'default.deleted.message', args: [message(code: 'deal.label', default: 'Deal'), params.id])
+        redirect(action: "list")
 
     }
 }
