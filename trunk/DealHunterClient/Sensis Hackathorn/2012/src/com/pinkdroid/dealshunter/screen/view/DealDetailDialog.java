@@ -20,17 +20,22 @@ import android.widget.TextView;
 
 public class DealDetailDialog extends Dialog {
 	private Deal deal;
-	//private Context context;
+	private Context context;
 	public static final int DIALOG_TYPE_DEAL_DETAIL = 0;
 
 	public DealDetailDialog(Context context, final Deal deal) {
 		super(context);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		//this.context = context;
-		this.deal = deal;
+		this.context = context;
 		this.setContentView(R.layout.deal_detail_screen);
 		this.setTitle("Deal details");
+		refreshView(deal);
 
+		
+	}
+	
+	public void refreshView(Deal newDeal){
+		this.deal=newDeal;
 		TextView deal_detail_screen_discount_description = (TextView) findViewById(R.id.deal_detail_screen_discount_description);
 		deal_detail_screen_discount_description.setText(this.deal.getDiscountDescription());
 		ImageView deal_detail_deal_image = (ImageView) findViewById(R.id.deal_detail_deal_image);
