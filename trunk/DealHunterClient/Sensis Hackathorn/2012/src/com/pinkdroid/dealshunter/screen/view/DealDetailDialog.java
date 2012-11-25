@@ -6,6 +6,7 @@ import com.pinkdroid.dealshunter.R;
 import com.pinkdroid.dealshunter.controller.DealsHunterController;
 import com.pinkdroid.dealshunter.model.Business;
 import com.pinkdroid.dealshunter.model.Deal;
+import com.pinkdroid.dealshunter.model.Review;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -89,6 +90,20 @@ public class DealDetailDialog extends Dialog {
 		}
 		TextView endTimeTV = (TextView) findViewById(R.id.deal_detail_end_time);
 		endTimeTV.setText(temp + " left");
+		
+		TextView deal_detail_reviewer_name = (TextView) findViewById(R.id.deal_detail_reviewer_name);
+		TextView deal_detail_review_time  = (TextView) findViewById(R.id.deal_detail_review_time);
+		TextView review_text = (TextView) findViewById(R.id.review_text);
+		int bbID = business.getBusinessId();
+		if(Review.reviews.get(bbID).aboutId == null){
+			deal_detail_reviewer_name.setText("");
+			deal_detail_review_time.setText("");
+			review_text.setText("");
+		}else{
+			deal_detail_reviewer_name.setText(Review.reviews.get(bbID).commenter);
+			deal_detail_review_time.setText(Review.reviews.get(bbID).commentDate);
+			review_text.setText(Review.reviews.get(bbID).latestComment);
+		}
 		
 		TextView mapButton = (TextView) findViewById(R.id.deal_detail_mapview);
 		mapButton.setFocusable(true);
