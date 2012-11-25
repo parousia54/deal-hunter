@@ -20,25 +20,28 @@ public class DealViewerPageFragment extends Fragment {
 
 	
 
-	public DealViewerPageFragment() {
-		
+	public DealViewerPageFragment(int pageId) {
+		this.pageId=pageId;
 	}
-
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		this.pageId = getActivity().getActionBar().getSelectedTab().getPosition();
-		
-		ViewGroup root = (ViewGroup) inflater.inflate(R.layout.deal_viewer_fragment_page_layout, null);
-		ListView list = (ListView) root.findViewById(R.id.deals_listview);
+	public void onResume(){
+		super.onResume();
+		ListView list = (ListView) this.getView().findViewById(R.id.deals_listview);
 		DealListViewAdapter adapter = new DealListViewAdapter(this.getActivity(), DealsHunterController.getInstance().getDealList(pageId));
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 				getActivity().showDialog(DealDetailDialog.DIALOG_TYPE_DEAL_DETAIL);
 			}
 		});
+	}
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//		this.pageId = getActivity().getActionBar().getSelectedTab().getPosition();
+		
+		ViewGroup root = (ViewGroup) inflater.inflate(R.layout.deal_viewer_fragment_page_layout, null);
+		
 		return root;
 	}
 }

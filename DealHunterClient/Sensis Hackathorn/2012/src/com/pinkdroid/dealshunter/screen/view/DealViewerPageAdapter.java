@@ -15,7 +15,7 @@ public class DealViewerPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        Fragment fragment = new DealViewerPageFragment();
+        Fragment fragment = new DealViewerPageFragment(i);
         return fragment;
     }
 
