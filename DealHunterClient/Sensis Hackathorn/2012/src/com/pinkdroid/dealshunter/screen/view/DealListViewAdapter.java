@@ -33,7 +33,7 @@ public class DealListViewAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public Object getItem(int pos) {
+	public Deal getItem(int pos) {
 		return dealList.get(pos);
 	}
 

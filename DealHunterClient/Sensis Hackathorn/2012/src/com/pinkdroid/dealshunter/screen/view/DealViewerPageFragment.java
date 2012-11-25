@@ -27,11 +27,12 @@ public class DealViewerPageFragment extends Fragment {
 	public void onResume(){
 		super.onResume();
 		ListView list = (ListView) this.getView().findViewById(R.id.deals_listview);
-		DealListViewAdapter adapter = new DealListViewAdapter(this.getActivity(), DealsHunterController.getInstance().getDealList(pageId));
+		final DealListViewAdapter adapter = new DealListViewAdapter(this.getActivity(), DealsHunterController.getInstance().getDealList(pageId));
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+				DealsHunterController.getInstance().setSelectedDeal(adapter.getItem(pos));
 				getActivity().showDialog(DealDetailDialog.DIALOG_TYPE_DEAL_DETAIL);
 			}
 		});
