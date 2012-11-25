@@ -18,23 +18,20 @@ public class DealViewerPageFragment extends Fragment {
 	public static final int END_SOON_PAGE_ID = 3;
 	private int pageId;
 
-	public static Fragment getNewInstance(int pageId) {
-		DealViewerPageFragment page = new DealViewerPageFragment(pageId);
-		return page;
-	}
+	
 
-	private DealViewerPageFragment(int pageId) {
-		super();
-		this.pageId = pageId;
+	public DealViewerPageFragment() {
+		
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		this.pageId = getActivity().getActionBar().getSelectedTab().getPosition();
+		
 		ViewGroup root = (ViewGroup) inflater.inflate(R.layout.deal_viewer_fragment_page_layout, null);
 		ListView list = (ListView) root.findViewById(R.id.deals_listview);
 		DealListViewAdapter adapter = new DealListViewAdapter(this.getActivity(), DealsHunterController.getInstance().getDealList(pageId));
 		list.setAdapter(adapter);
-
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override

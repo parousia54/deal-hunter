@@ -15,9 +15,7 @@ public class DealViewerPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        Fragment fragment = DealViewerPageFragment.getNewInstance(i);
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
+        Fragment fragment = new DealViewerPageFragment();
         return fragment;
     }
 
@@ -32,7 +30,7 @@ public class DealViewerPageAdapter extends FragmentPagerAdapter {
             case 0: return "Popular";
             case 1: return "Most Recent";
             case 2: return "Near by";
-            case 3: return "Ends soon";
+            case 3: return "End soon";
         }
         return null;
     }
