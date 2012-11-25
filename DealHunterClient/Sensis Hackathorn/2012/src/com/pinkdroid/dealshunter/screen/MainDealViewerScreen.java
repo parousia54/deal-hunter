@@ -131,6 +131,14 @@ public class MainDealViewerScreen extends FragmentActivity implements ActionBar.
 		return dialog;
 
 	}
-    
+    @Override
+    public void onPrepareDialog(int id,Dialog dialog){
+    	super.onPrepareDialog(id, dialog);
+    	switch (id) {
+		case DealDetailDialog.DIALOG_TYPE_DEAL_DETAIL: {
+			((DealDetailDialog)dialog).refreshView(DealsHunterController.getInstance().getSelectedDeal());
+		}
+		}
+    }
    
 }
